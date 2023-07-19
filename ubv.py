@@ -4,6 +4,7 @@ from PIL import ImageTk, Image
 
 
 
+
 def calculate_percentage():
     try:
         subjectName = subject_entry.get()
@@ -30,8 +31,6 @@ def calculate_percentage():
             result_label.config(text=f"Tu porcentaje de asistencia en {subjectName} será de: {resultado}%", foreground="green", font=("Arial", 12, "bold"), wraplength=400)
     except ValueError:
         result_label.config(text="Error: Ingresa números enteros en los campos correspondientes", foreground="red", wraplength=400)
-
-
 
 def restart():
     subject_entry.delete(0, tk.END)
@@ -70,7 +69,7 @@ description_label = ttk.Label(start_frame, text="Este programa te ayudará a cal
 description_label.pack(pady=10)
 
 # Footer en el marco de inicio
-start_footer_label = ttk.Label(start_frame, text="© Powered by: Joaquin Rojas 3517466759 v1.0", font=("Arial", 8))
+start_footer_label = ttk.Label(start_frame, text="© Powered by: Joaquin Rojas 3517466759 v1.0", font=("Arial", 8, "bold"))
 start_footer_label.pack(side="bottom")
 
 # Botón para iniciar
@@ -101,10 +100,8 @@ main_frame_width = 00
 main_frame_height = 600
 main_frame.place(width=main_frame_width, height=main_frame_height, relx=0.5, rely=0.5, anchor="center")
 
-
 # Ajustar la forma en que se expande el marco principal
 main_frame.pack(fill="both", expand=True)
-
 
 # Etiqueta de título en el marco principal
 main_title_label = ttk.Label(main_frame, text="Calculadora de Asistencia", font=("Arial", 20))
@@ -150,13 +147,24 @@ calculate_button.pack(side="left", padx=5)
 restart_button = ttk.Button(button_container, text="Reiniciar", command=restart, style="Restart.TButton")
 restart_button.pack(side="left", padx=5)
 
+# Cambiar el estilo del botón Cerrar
+style.configure("Close.TButton", font=("Arial", 12, "bold"))
+style.configure("Close.TButton", foreground="white", background="#FF0000")
+style.map("Close.TButton",
+          foreground=[("pressed", "white"), ("active", "white")],
+          background=[("pressed", "#B30000"), ("active", "#B30000")])
+
+# Botón para cerrar la aplicación
+close_button = ttk.Button(button_container, text="Cerrar", command=close_app, style="Close.TButton")
+close_button.pack(side="right", padx=5)
+
+
 # Etiqueta para mostrar el resultado
 result_label = ttk.Label(main_frame, text="", foreground="black", font=("Arial", 12))
 result_label.pack(pady=10)
 
-
 # Footer en el marco principal
-main_footer_label = ttk.Label(main_frame, text="© Powered by: Joaquin Rojas 3517466759 v1.0", font=("Arial", 8))
+main_footer_label = ttk.Label(main_frame, text="© Powered by: Joaquin Rojas 3517466759 v1.0", font=("Arial", 8, "bold"))
 main_footer_label.pack(side="bottom")
 
 # Cambiar el estilo del botón Calcular
