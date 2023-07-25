@@ -61,7 +61,7 @@ start_frame = ttk.Frame(window)
 start_frame.pack(pady=50, fill="both", expand=True)
 
 # Etiqueta de bienvenida
-welcome_label = ttk.Label(start_frame, text="Calculadora de Asistencia", font=("Arial", 20))
+welcome_label = ttk.Label(start_frame, text="CALCULADORA DE ASISTENCIA", font=("Calibri", 20, "bold", "italic"))
 welcome_label.pack(pady=10)
 
 # Etiqueta de descripción
@@ -69,7 +69,7 @@ description_label = ttk.Label(start_frame, text="Este programa te ayudará a cal
 description_label.pack(pady=10)
 
 # Footer en el marco de inicio
-start_footer_label = ttk.Label(start_frame, text="© Powered by: Joaquin Rojas 3517466759 v1.0", font=("Arial", 8, "bold"))
+start_footer_label = ttk.Label(start_frame, text="© Powered by: Joaquin Rojas 3517466759 v1.0", font=("Calibri", 8))
 start_footer_label.pack(side="bottom")
 
 # Botón para iniciar
@@ -95,16 +95,11 @@ image_label.pack(pady=10)
 # Crear el marco principal
 main_frame = ttk.Frame(window)
 
-# Establecer las dimensiones de la pantalla de cálculos
-main_frame_width = 00
-main_frame_height = 600
-main_frame.place(width=main_frame_width, height=main_frame_height, relx=0.5, rely=0.5, anchor="center")
-
 # Ajustar la forma en que se expande el marco principal
 main_frame.pack(fill="both", expand=True)
 
 # Etiqueta de título en el marco principal
-main_title_label = ttk.Label(main_frame, text="Calculadora de Asistencia", font=("Arial", 20))
+main_title_label = ttk.Label(main_frame, text="CALCULADORA DE ASISTENCIA", font=("Calibri", 18, "bold", "italic", "underline"))
 main_title_label.pack(pady=10)
 
 # Crear un contenedor para los campos de entrada
@@ -158,13 +153,12 @@ style.map("Close.TButton",
 close_button = ttk.Button(button_container, text="Cerrar", command=close_app, style="Close.TButton")
 close_button.pack(side="right", padx=5)
 
-
 # Etiqueta para mostrar el resultado
-result_label = ttk.Label(main_frame, text="", foreground="black", font=("Arial", 12))
+result_label = ttk.Label(main_frame, text="", foreground="black", font=("Arial", 12, "bold"))
 result_label.pack(pady=10)
 
 # Footer en el marco principal
-main_footer_label = ttk.Label(main_frame, text="© Powered by: Joaquin Rojas 3517466759 v1.0", font=("Arial", 8, "bold"))
+main_footer_label = ttk.Label(main_frame, text="© Powered by: Joaquin Rojas 3517466759 v1.0", font=("Arial", 8))
 main_footer_label.pack(side="bottom")
 
 # Cambiar el estilo del botón Calcular
@@ -180,6 +174,10 @@ style.configure("Restart.TButton", foreground="white", background="#FF5722")
 style.map("Restart.TButton",
           foreground=[("pressed", "white"), ("active", "white")],
           background=[("pressed", "#E64A19"), ("active", "#E64A19")])
+
+# Establecer el favicon
+favicon_path = "favicon.ico"
+window.iconbitmap(favicon_path)
 
 # Ejecutar la aplicación
 window.mainloop()
