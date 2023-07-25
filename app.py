@@ -77,7 +77,7 @@ start_button = ttk.Button(start_frame, text="Iniciar", command=show_main_window)
 start_button.pack(pady=10)
 
 # Ruta de la imagen
-image_path = "img6.png"
+image_path = "main_img.png"
 
 # Cargar la imagen
 image = Image.open(image_path)
